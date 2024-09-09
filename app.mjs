@@ -67,6 +67,5 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   return res.render("index", { title: "Express" });
 });
-console.log("testing pull requests")
 
 export default app;
