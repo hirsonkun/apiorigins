@@ -30,6 +30,19 @@ router.get("/raw", async function (req, res) {
   }
   return res.json({ data: null, message: "Hello World" });
 });
+router.get("/json", async function (req, res) {
+  try {
+    const url = req.query.url;
+    if (url) {
+      const response = await fetch(decodeURIComponent(url));
+      const data = await response.json();
+      return res.json(data);
+    }
+  } catch (e) {
+    return res.json({ data: null, message: e.message });
+  }
+  return res.json({ data: null, message: "Hello World" });
+});
 router.get("/line", async function (req, res) {
   let results = [];
   try {
