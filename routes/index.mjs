@@ -23,7 +23,7 @@ router.get("/raw", async function (req, res) {
     if (url) {
       const response = fetch(decodeURIComponent(url));
       const data = await (await response).text();
-      return res.json({ data });
+      return res.json(data);
     }
   } catch (e) {
     return res.json({ data: null, message: e.message });
@@ -145,3 +145,4 @@ router.get("/file", async function (req, res) {
 });
 
 export default router;
+
